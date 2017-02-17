@@ -2,6 +2,8 @@
 
 ## Step2
 
+### SyncAsync 프로젝트
+
 비동기식 작업 작성하기
 
 - NSObject, Select, performSelector
