@@ -23,19 +23,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // 이미지 경로
         let urlStr = "\(baseURL)\(character).png?raw=true"
-        if let url = URL(string: urlStr),
-            let imageData = try? Data(contentsOf: url) {
-            
-            let image = UIImage(data: imageData)
-            cell.imageView?.image = image
-        }
-        
+        let url = URL(string: urlStr)!
+        let imageData = try! Data(contentsOf: url)
+        let image = UIImage(data: imageData)
+        cell.imageView?.image = image
         return cell
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
+    }    
 }
