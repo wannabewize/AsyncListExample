@@ -23,13 +23,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // 이미지 경로
         let urlStr = "\(baseURL)\(character).png?raw=true"
-        if let url = URL(string: urlStr),
-            let imageData = try? Data(contentsOf: url) {
-            
-            let image = UIImage(data: imageData)
-            cell.imageView?.image = image
-        }
+        let url = URL(string: urlStr)!
         
+        // 동기식 다운로드
+        let imageData = try! Data(contentsOf: url)
+        
+        // 이미지로 변환 후 이미지 뷰에 설정
+        let image = UIImage(data: imageData)
+        cell.imageView?.image = image
         return cell
     }
     
@@ -37,6 +38,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
 }
 
