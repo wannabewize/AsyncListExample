@@ -20,6 +20,7 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 *.xcuserstate
+UserInterfaceState.xcuserstate
 
 ## Other
 *.moved-aside
