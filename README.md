@@ -1,11 +1,11 @@
 # 비동기 목록 예제
 
-## Step1
+## Step2
 
-동기식 방식으로 목록 출력하기
+비동기식 작업 작성하기
 
-    let urlStr = "http://hostaddress.com/image.png"
-    let url = URL(string: urlStr)!
-    let imageData = try! Data(contentsOf: url)
-    let image = UIImage(data: imageData)
-    cell.imageView?.image = image
+- NSObject, Select, performSelector
+- Thread 자식 클래스 생성
+- Thread.detachNewThread
+- URLSession and Task
+- OperationQeuue, Queue
