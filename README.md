@@ -1,13 +1,11 @@
 # 비동기 목록 예제
 
-## Step2
+## Step4
 
-### SyncAsync 프로젝트
+### AsyncList 프로젝트
 
-비동기식 작업 작성하기
+이미지 로더 적용하기
 
-- NSObject, Select, performSelector
-- Thread 자식 클래스 생성
-- Thread.detachNewThread
-- URLSession and Task
-- OperationQeuue, Queue
+- [Nuke 이미지 로더](https://github.com/kean/Nuke)
+- Cocoapods로 설치
+- 셀 이미지 로딩 : Nuke.loadImage(with: url, into: cell.imageView!)
