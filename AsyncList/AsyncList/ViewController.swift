@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Nuke
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -29,25 +30,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let urlStr = "\(baseURL)\(character).png?raw=true"
         let url = URL(string: urlStr)!
         
-        if let image = cache[url] {
-            cell.imageView?.image = image
-        }
-        else {
-            queue.addOperation {
-                // 이미지 다운로드
-                let imageData = try! Data(contentsOf: url)
-                
-                // 이미지 변환
-                let image = UIImage(data: imageData)
-                
-                // 캐쉬에 저장
-                self.cache[url] = image
-                
-                OperationQueue.main.addOperation {
-                    cell.imageView?.image = image
-                }
-            }
-        }
+        Nuke.loadImage(with: url, into: cell.imageView!)
+        
+//        if let image = cache[url] {
+//            cell.imageView?.image = image
+//        }
+//        else {
+//            queue.addOperation {
+//                // 이미지 다운로드
+//                let imageData = try! Data(contentsOf: url)
+//                
+//                // 이미지 변환
+//                let image = UIImage(data: imageData)
+//                
+//                // 캐쉬에 저장
+//                self.cache[url] = image
+//                
+//                OperationQueue.main.addOperation {
+//                    cell.imageView?.image = image
+//                }
+//            }
+//        }
         
         return cell
     }
