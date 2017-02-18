@@ -4,11 +4,13 @@
 //
 
 import UIKit
+import Dispatch
 
 class ViewController: UIViewController {
     
     let urlStr = "https://github.com/wannabewize/AsyncListExample/blob/step1/images/wwdc2017.png?raw=true"
     
+    var queue : DispatchQueue!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
@@ -132,6 +134,22 @@ class ViewController: UIViewController {
         queue.addOperation(operation)
     }
     
+    @IBAction func loadAsyc6(_ sender: Any) {
+        imageView.image = nil
+        self.indicator.startAnimating()
+        queue.async {
+            print("isMain : \(Thread.isMainThread)")
+            let url = URL(string: self.urlStr)!
+            let data = try! Data(contentsOf: url)
+            print("download done")
+            let image = UIImage(data: data)
+            DispatchQueue.main.async {
+                self.indicator.stopAnimating()
+                self.imageView.image = image
+            }
+        }
+    }
+    
     class ImageOperation : Operation {
         var imageView : UIImageView!
         var urlStr : String!
@@ -151,6 +169,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        queue = DispatchQueue(label: "myQueue")
     }
 }
 

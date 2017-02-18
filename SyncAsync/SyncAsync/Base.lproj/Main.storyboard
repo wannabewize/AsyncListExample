@@ -49,6 +49,11 @@
                                             <action selector="loadAsync5:" destination="BYZ-38-t0r" id="SNr-ay-ixV"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="ex6" id="wDv-fR-LL5">
+                                        <connections>
+                                            <action selector="loadAsyc6:" destination="BYZ-38-t0r" id="rZQ-Uz-52p"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Sync" id="TSH-XG-6Nv">
                                         <connections>
                                             <action selector="loadSync:" destination="BYZ-38-t0r" id="xuY-bp-ekV"/>
